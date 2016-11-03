@@ -14,7 +14,7 @@ namespace InfixCalculatorTests
 		{
 			// TODO: Your test code here
 			Assert::IsFalse(Parser::isSyntacticallyCorrect(""));
-			Assert::IsTrue(Parser::isSyntacticallyCorrect("1"));
+			Assert::IsTrue(Parser::isSyntacticallyCorrect("1+1"));
 		}
 
 	};

@@ -9,7 +9,7 @@
 
 bool Parser::isSyntacticallyCorrect(const std::string& infixExpression)
 {
-	if (infixExpression.empty())
+	if (infixExpression.length() < 3)
 	{
 		return false;
 	}
