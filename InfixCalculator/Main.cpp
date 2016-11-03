@@ -10,8 +10,18 @@ int main(int argc, char** argv)
 	cout << "Echo an infix expression: ";
 	cin >> infixExp;
 
-	cout << infixExp << endl;
+	for (int i = 0; i < infixExp.length(); i++)
+	{
+		cout << infixExp[i];
+	}
+
+	cout << endl;
 
 	system("pause");
 	return 0;
+}
+
+int getLife()
+{
+	return 42;
 }
