@@ -48,5 +48,12 @@ DataType Stack<DataType>::pop()
 	List<DataType>::removeFirst();
 	return value;
 }
+template <typename DataType>
+DataType Stack<DataType>::peek()
+{
+	DataType value = head->getData();
+	return value;
+}
+
 
 #endif
