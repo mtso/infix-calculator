@@ -11,3 +11,9 @@ Operator::Operator()
 	precedences['('] = 3;
 	precedences[')'] = 3;
 }
+
+
+int Operator::precedence(char ch)
+{
+	return precedences[ch];
+}
