@@ -35,9 +35,9 @@ namespace InfixCalculatorTests
 			falseExp[4] = "(1)-(3+)-9";
 			falseExp[5] = "1+3(4/5)";
 			falseExp[6] = "(1+)-(3+(4/5))-9";
-			falseExp[7] = "";
-			falseExp[8] = "";
-			falseExp[9] = "";
+			falseExp[7] = "2+2+";
+			falseExp[8] = "*2+7";
+			falseExp[9] = "(3/8";
 
 			for (int i = 0; i < EXP_ARRLEN; i++) {
 				Assert::IsTrue(Parser::isSyntacticallyCorrect(trueExp[i]));

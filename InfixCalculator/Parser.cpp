@@ -76,9 +76,18 @@ bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 			}
 		}
 		
-		
+		if (isOperator(inputString[i])) {
+			// An operator cannot be first/last character
+			if (i == 0 || i == inputString.length() - 1) {
+				return false;
+			}
+		}
 	}
 
+	// Make sure all opening parens have been closed
+	if (openingParens > 0) {
+		return false;
+	}
 
 	return true;
 }
