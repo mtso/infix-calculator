@@ -32,9 +32,9 @@ namespace InfixCalculatorTests
 			falseExp[1] = "2++";
 			falseExp[2] = "**3";
 			falseExp[3] = "(1)+(3+4/5))*3";
-			falseExp[4] = "(1)-(3+)-9";			// < TODO returns true
+			falseExp[4] = "(1)-(3+)-9";
 			falseExp[5] = "1+3(4/5)";
-			falseExp[6] = "(1+)-(3+(4/5))-9";	// < TODO returns true
+			falseExp[6] = "(1+)-(3+(4/5))-9";
 			falseExp[7] = "";
 			falseExp[8] = "";
 			falseExp[9] = "";
