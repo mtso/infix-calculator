@@ -41,9 +41,14 @@ bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 		if (isOpenParen(inputString[i])) {
 			openingParens++;
 
-			// Return false if an integer is in front of the opening paren
+			// Return false if an integer is on the left side of the opening paren
 			// will not assume that the user intended a multiplication operation.
 			if (i > 0 && isInteger(inputString[i - 1])) {
+				return false;
+			}
+
+			// Return false if an operator is on the right side (inside) of the opening paren
+			if (i < inputString.length() - 1 && isOperator(inputString[i + 1])) {
 				return false;
 			}
 		}
@@ -58,7 +63,13 @@ bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 				openingParens--;
 			}
 
-			// Return false if an integer is behind the closing paren
+			// Return false if an operator is on the left side (inside) of the closing paren
+			// will not assume that the user intended a multiplication operation.
+			if (i > 0 && isOperator(inputString[i - 1])) {
+				return false;
+			}
+
+			// Return false if an integer is on the right side of the closing paren
 			// will not assume that the user intended a multiplication operation.
 			if (i < inputString.length() - 1 && isInteger(inputString[i + 1])) {
 				return false;
