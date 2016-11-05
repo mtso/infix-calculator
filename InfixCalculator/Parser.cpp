@@ -22,7 +22,7 @@ bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 	
 	int openingParens = 0;
 
-	for (int i = 0; i < inputString.length(); i++) {
+	for (int i = 0; i < (int)inputString.length(); i++) {
 
 		// Don't compare the last character with the null terminator
 		if (i < inputString.length() - 1)

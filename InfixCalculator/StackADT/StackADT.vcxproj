@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{23D7D3C3-FE24-40A6-A48F-D7C555D9E7A5}</ProjectGuid>
-    <RootNamespace>InfixCalculator</RootNamespace>
+    <ProjectGuid>{41D1AD96-9CEA-4E8E-83F4-1C012ABD66ED}</ProjectGuid>
+    <RootNamespace>StackADT</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,26 +64,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Currency.cpp" />
+    <ClCompile Include="List.cpp" />
+    <ClCompile Include="Logger\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Operator.cpp" />
-    <ClCompile Include="Parser.cpp" />
-    <ClCompile Include="StackADT\List.cpp" />
-    <ClCompile Include="StackADT\Logger\Logger.cpp" />
-    <ClCompile Include="StackADT\Node.cpp" />
-    <ClCompile Include="StackADT\Queue.cpp" />
-    <ClCompile Include="StackADT\Stack.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Currency.h" />
+    <ClInclude Include="Collection.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Logger\Logger.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="Operator.h" />
-    <ClInclude Include="Parser.h" />
-    <ClInclude Include="StackADT\Collection.h" />
-    <ClInclude Include="StackADT\List.h" />
-    <ClInclude Include="StackADT\Logger\Logger.h" />
-    <ClInclude Include="StackADT\Node.h" />
-    <ClInclude Include="StackADT\Queue.h" />
-    <ClInclude Include="StackADT\Stack.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
