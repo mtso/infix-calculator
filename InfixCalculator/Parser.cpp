@@ -7,16 +7,19 @@
 
 #include "Parser.h"
 
-bool Parser::isSyntacticallyCorrect(const std::string& infixExpression)
+bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 {
-	if (infixExpression.length() < 3)
+	if (inputString.length() < 3)
 	{
 		return false;
 	}
-	else
-	{
-		return true;
+	
+	for (int i = 0; i < inputString.length(); i++) {
+
 	}
+
+
+	return true;
 }
 
 
