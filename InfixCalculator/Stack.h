@@ -43,6 +43,11 @@ public:
 	 * Pop removes the first item from the stack.
 	 */
 	DataType pop();
+
+	/*
+	 * Peek returns the value of the first item from the stack.
+	 */
+	DataType peek();
 };
 
 #include "Stack.cpp"

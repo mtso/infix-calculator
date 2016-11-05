@@ -51,8 +51,7 @@ DataType Stack<DataType>::pop()
 template <typename DataType>
 DataType Stack<DataType>::peek()
 {
-	DataType value = head->getData();
-	return value;
+	return head->getData();
 }
 
 
