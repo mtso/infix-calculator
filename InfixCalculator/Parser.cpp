@@ -8,6 +8,7 @@
 
 #include "Parser.h"
 
+bool isValidCharacter(const char& inputChar);
 bool isInteger(const char& inputChar);
 bool isOpenParen(const char& inputChar);
 bool isClosingParen(const char& inputChar);
@@ -23,6 +24,10 @@ bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 	int openingParens = 0;
 
 	for (int i = 0; i < (int)inputString.length(); i++) {
+
+		if (!isValidCharacter(inputString[i])) {
+			return false;
+		}
 
 		// Don't compare the last character with the null terminator
 		if (i < inputString.length() - 1)
@@ -92,6 +97,14 @@ bool Parser::isSyntacticallyCorrect(const std::string& inputString)
 	return true;
 }
 
+bool isValidCharacter(const char& inputChar)
+{
+	return 
+		isOperator(inputChar) || 
+		isInteger(inputChar) ||
+		isOpenParen(inputChar) || 
+		isClosingParen(inputChar);
+}
 
 bool isOperator(const char& inputChar)
 {
@@ -101,7 +114,6 @@ bool isOperator(const char& inputChar)
 	case '+':
 	case '-':
 		return true;
-		break;
 
 	default:
 		return false;
@@ -110,23 +122,7 @@ bool isOperator(const char& inputChar)
 
 bool isInteger(const char& inputChar)
 {
-	switch (inputChar) {
-	case '1':
-	case '2':
-	case '3':
-	case '4':
-	case '5':
-	case '6':
-	case '7':
-	case '8':
-	case '9':
-	case '0':
-		return true;
-		break;
-
-	default:
-		return false;
-	}
+	return isdigit(inputChar) != 0;
 }
 
 bool isOpenParen(const char& inputChar)

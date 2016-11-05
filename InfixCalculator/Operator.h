@@ -4,13 +4,18 @@
 
 #ifndef OPERATOR_H
 #define OPERATOR_H
-#include <map>;
+#include <map>
+
 using namespace std;
 
 class Operator
 {
 private:
 	map <char, int> precedences;
+
+	//int precedence;
+
+
 public:
 	Operator();
 
