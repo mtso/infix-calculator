@@ -9,10 +9,10 @@ namespace InfixCalculatorTests
 	{
 	public:
 		
-		TEST_METHOD(TestLife)
+		TEST_METHOD(Test)
 		{
 			// TODO: Your test code here
-			Assert::Fail();
+			Assert::Fail(L"Test has not been written yet");
 		}
 
 	};

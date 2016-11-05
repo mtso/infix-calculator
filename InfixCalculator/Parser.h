@@ -9,6 +9,10 @@
 
 namespace Parser 
 {
+	/* 
+	 * Returns true if the string input is
+	 * a syntactically valid infix expression.
+	 */
 	bool isSyntacticallyCorrect(const std::string& infixExpression);
 }
 
