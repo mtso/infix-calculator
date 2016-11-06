@@ -14,7 +14,7 @@ namespace InfixCalculatorTests
 		{
 			InfixCalculator infcalc;
 			infcalc.setInfixExp("1+1");
-			Assert::AreEqual(3, infcalc.getResult());
+			Assert::AreEqual(2, infcalc.getResult());
 		}
 
 	};
