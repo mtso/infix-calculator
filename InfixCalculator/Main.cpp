@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void toggleFancyMode();
+bool toggleFancyMode();
 
 int main(int argc, char** argv)
 {
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 
 		string fancyFirst = " \x0C9\x0BB\x0C9\x0CB\x0BB";
 		string fancySecond = " \x0CC\x0B9\x0BA\x0BA\x0BA";
-		fancySecond.append("INDUSTRIES");
+		fancySecond.append("INSTRUMENTS");
 
 		cout << fancyFirst << endl;
 		cout << fancySecond << endl << endl;
@@ -57,7 +57,8 @@ int main(int argc, char** argv)
 			break;
 
 		case 'C':
-			toggleFancyMode();
+			fancyModeOption = toggleFancyMode();
+			cout << (fancyModeOption ? " > Fancy colors on." : " > Fancy colors off.") << endl;
 			break;
 
 		case 'I':
@@ -106,11 +107,11 @@ int main(int argc, char** argv)
 	return 0;
 }
 
-void toggleFancyMode()
+bool toggleFancyMode()
 {
 	static bool isFancyMode = false;
 
 	isFancyMode = !isFancyMode;
 	isFancyMode ? system("COLOR F5") : system("COLOR 07");
-	cout << (isFancyMode ? " > Fancy colors on." : " > Fancy colors off.") << endl;
+	return isFancyMode;
 }
