@@ -39,7 +39,7 @@
     <ClCompile Include="StackADT\Stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InfixConverter.cpp">
+    <ClCompile Include="InfixCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,7 +74,7 @@
     <ClInclude Include="PostfixCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InfixConverter.h">
+    <ClInclude Include="InfixCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

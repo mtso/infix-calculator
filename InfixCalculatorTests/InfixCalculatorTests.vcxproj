@@ -60,7 +60,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)InfixCalculator\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Parser.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Operator.obj;InfixCalculator.obj;Parser.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,6 +87,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="InfixCalculatorTests.cpp" />
     <ClCompile Include="OperatorTests.cpp" />
     <ClCompile Include="ParserTests.cpp" />
     <ClCompile Include="stdafx.cpp">
