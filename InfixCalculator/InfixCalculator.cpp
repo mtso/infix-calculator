@@ -31,6 +31,7 @@ void InfixCalculator::evaluateExpression()
 
 		current = infixExp[i];
 
+		// DEBUGOUTPUT
 		cout << "Evaluating: " << current << endl;
 
 		switch (current) {
@@ -45,6 +46,7 @@ void InfixCalculator::evaluateExpression()
 		case '8':
 		case '9':
 			valueStack.push(atoi(&current));
+			// DEBUGOUTPUT
 			cout << "valueStack top: " << valueStack.peek() << endl;
 			break;
 	
@@ -122,6 +124,7 @@ void InfixCalculator::performOperation()
 		throw errorMessage;
 	}
 
+	// DEBUGOUTPUT
 	cout << "Left: " << operandLeft << ", Right: " << operandRight << ", Operator: " << operatorChar << endl;
 	cout << "Intermediary result: " << intermediaryResult << endl;
 

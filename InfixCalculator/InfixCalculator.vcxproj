@@ -76,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InfixCalculator.h" />
-    <ClInclude Include="PostfixCalculator.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="OperatorType.h" />
     <ClInclude Include="Parser.h" />

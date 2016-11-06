@@ -71,9 +71,6 @@
     <ClInclude Include="OperatorType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PostfixCalculator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="InfixCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
