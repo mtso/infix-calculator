@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InfixConverter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -74,6 +75,8 @@
     <ClCompile Include="StackADT\Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="InfixConverter.h" />
+    <ClInclude Include="PostfixCalculator.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="OperatorType.h" />
     <ClInclude Include="Parser.h" />

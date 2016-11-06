@@ -1,4 +1,6 @@
-
+// OperatorType.h
+// Lab 3: Postfix Operations
+// CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
 enum OperatorType
 {
@@ -10,21 +12,22 @@ enum OperatorType
 	DIVISION
 };
 
+// Book's algorithm treats parens as operators with the lowest precedence
 int precedenceOf(const char& test)
 {
 	switch (test)
 	{
-	case '(':
-	case ')':
-		return 2;
-		
 	case '*':
 	case '/':
 	//case '%':
-		return 1;
+		return 2;
 
 	case '+':
 	case '-':
+		return 1;
+
+	case '(':
+	case ')':
 		return 0;
 
 	default:

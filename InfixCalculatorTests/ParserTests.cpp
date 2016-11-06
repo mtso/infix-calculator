@@ -15,7 +15,7 @@ namespace InfixCalculatorTests
 			const int EXP_ARRLEN = 10;
 
 			char* trueExp[EXP_ARRLEN];
-			char* falseExp[EXP_ARRLEN];
+			char* falseExp[EXP_ARRLEN * 2];
 
 			trueExp[0] = "1+1";
 			trueExp[1] = "4+(4*4)";
@@ -38,12 +38,23 @@ namespace InfixCalculatorTests
 			falseExp[7] = "2+2+";
 			falseExp[8] = "*2+7";
 			falseExp[9] = "(3/8";
+			falseExp[10] = "3 4";
+			falseExp[11] = "3 4";
+			falseExp[12] = "3 4";
+			falseExp[13] = "3 4";
+			falseExp[14] = "3 4";
+			falseExp[15] = "3 4";
+			falseExp[16] = "3 4";
+			falseExp[17] = "3 4";
+			falseExp[18] = "3 4";
+			falseExp[19] = "3 4";
+
 
 			for (int i = 0; i < EXP_ARRLEN; i++) {
 				Assert::IsTrue(Parser::isSyntacticallyCorrect(trueExp[i]));
 			}
 
-			for (int i = 0; i < EXP_ARRLEN; i++) {
+			for (int i = 0; i < EXP_ARRLEN * 2; i++) {
 				Assert::IsFalse(Parser::isSyntacticallyCorrect(falseExp[i]));
 			}
 		}
