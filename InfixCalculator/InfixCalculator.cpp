@@ -11,16 +11,16 @@
 
 #include "InfixCalculator.h"
 
-bool InfixCalculator::setInfixExp(const string& inputExpression)
+int InfixCalculator::setInfixExp(const string& inputExpression)
 {
 	infixExp = inputExpression;
 
 	if (Parser::isSyntacticallyCorrect(infixExp)) {
 		evaluateExpression();
-		return true;
+		return result;
 	}
 	else {
-		return false;
+		throw "Invalid syntax: " + inputExpression;
 	}
 }
 

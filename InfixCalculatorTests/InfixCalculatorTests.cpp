@@ -37,5 +37,11 @@ namespace InfixCalculatorTests
 			Assert::AreEqual(54, infcalc.getResult());
 		}
 
+		TEST_METHOD(Evaluate1m3p4d5m9)
+		{
+			InfixCalculator infcalc;
+			infcalc.setInfixExp("(1)-(3+(4/5))-9");
+			Assert::AreEqual(-11, infcalc.getResult());
+		}
 	};
 }

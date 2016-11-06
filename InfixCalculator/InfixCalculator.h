@@ -32,7 +32,7 @@ private:
 	void evaluateExpression();
 
 public:
-	bool setInfixExp(const string& inputExpression);
+	int setInfixExp(const string& inputExpression);
 	int getResult() const;
 	string getInfixExp() const;
 };
