@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 
 	// DEBUGOUTPUT ROUTINE
 	InfixCalculator infcalc;
-	bool isValidSyntax = infcalc.setInfixExp("3*3");
+	bool isValidSyntax = infcalc.setInfixExp("3*(3+3)*3");
 	if (isValidSyntax) {
 		int result = infcalc.getResult();
 		cout << "Final result: " << result << endl;

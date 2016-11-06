@@ -32,7 +32,7 @@
     <ClCompile Include="OperatorTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalculatorTests.cpp">
+    <ClCompile Include="InfixCalculatorTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

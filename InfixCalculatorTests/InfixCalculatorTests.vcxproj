@@ -87,7 +87,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CalculatorTests.cpp" />
+    <ClCompile Include="InfixCalculatorTests.cpp" />
     <ClCompile Include="OperatorTests.cpp" />
     <ClCompile Include="ParserTests.cpp" />
     <ClCompile Include="stdafx.cpp">

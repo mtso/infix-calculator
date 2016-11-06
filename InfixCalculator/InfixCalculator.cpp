@@ -88,6 +88,7 @@ void InfixCalculator::evaluateExpression()
 				performOperation();
 			}
 			operatorStack.pop();
+			break;
 	
 		default:
 			string errorMsg = "Unrecognized character passed to InfixCalculator: ";

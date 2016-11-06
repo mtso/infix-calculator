@@ -10,7 +10,7 @@ namespace InfixCalculatorTests
 	{
 	public:
 
-		// Map
+		// names
 		// x = *
 		// d = /
 		// p = +

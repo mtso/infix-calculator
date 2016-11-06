@@ -22,7 +22,7 @@ namespace InfixCalculatorTests
 			trueExp[2] = "1+(3+4/5)*3";
 			trueExp[3] = "(1+(3+4/5))*3";
 			trueExp[4] = "(1)-(3+(4/5))-9";
-			trueExp[5] = "1+1";
+			trueExp[5] = "3*(3+3)*3";
 			trueExp[6] = "1+1";
 			trueExp[7] = "1+1";
 			trueExp[8] = "1+1";
