@@ -17,6 +17,7 @@
 
 using namespace std;
 
+// Takes a minimal infix expression and returns equivalenent postfix expression
 string convertInfixToPostfix(const string& inputString);
 
 class InfixCalculator
