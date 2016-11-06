@@ -1,19 +1,27 @@
 #include <iostream>
 #include <string>
 
+#include "InfixCalculator.h"
+
 using namespace std;
 
 int main(int argc, char** argv)
 {
-	string infixExp;
+	//string infixExp;
 
-	cout << "Echo an infix expression: ";
-	cin >> infixExp;
+	//cout << "Echo an infix expression: ";
+	//cin >> infixExp;
 
-	for (int i = 0; i < infixExp.length(); i++)
-	{
-		cout << infixExp[i];
-	}
+	//for (int i = 0; i < infixExp.length(); i++)
+	//{
+	//	cout << infixExp[i];
+	//}
+
+	InfixCalculator infcalc;
+	infcalc.setInfixExp("1+1");
+	int result = infcalc.getResult();
+
+	cout << result;
 
 	cout << endl;
 

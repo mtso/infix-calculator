@@ -9,6 +9,7 @@
 #ifndef INFIXCALCULATOR_INFIXCALCULATOR_H
 #define INFIXCALCULATOR_INFIXCALCULATOR_H
 
+#include <iostream>
 #include <string>
 #include "StackADT\Stack.h"
 #include "Operator.h"

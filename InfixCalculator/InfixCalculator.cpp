@@ -30,7 +30,9 @@ void InfixCalculator::evaluateExpression()
 	for (int i = 0; i < (int)infixExp.length(); i++) {
 
 		current = infixExp[i];
-	
+
+		cout << "Evaluating: " << current << endl;
+
 		switch (current) {
 		case '0': 
 		case '1':
@@ -42,7 +44,8 @@ void InfixCalculator::evaluateExpression()
 		case '7':
 		case '8':
 		case '9':
-			valueStack.push(current);
+			valueStack.push(atoi(&current));
+			cout << "valueStack top: " << valueStack.peek() << endl;
 			break;
 	
 		case '(':
@@ -81,7 +84,7 @@ void InfixCalculator::evaluateExpression()
 	}
 
 	while (!operatorStack.isEmpty()) {
-		evaluateExpression();
+		performOperation();
 	}
 
 	result = valueStack.peek();
@@ -106,11 +109,11 @@ void InfixCalculator::performOperation()
 		break;
 
 	case '+':
-		intermediaryResult = operandLeft * operandRight;
+		intermediaryResult = operandLeft + operandRight;
 		break;
 
 	case '-':
-		intermediaryResult = operandLeft / operandRight;
+		intermediaryResult = operandLeft - operandRight;
 		break;
 
 	default:
@@ -118,6 +121,9 @@ void InfixCalculator::performOperation()
 		errorMessage += operatorChar;
 		throw errorMessage;
 	}
+
+	cout << "Left: " << operandLeft << ", Right: " << operandRight << ", Operator: " << operatorChar << endl;
+	cout << "Intermediary result: " << intermediaryResult << endl;
 
 	valueStack.push(intermediaryResult);
 }
