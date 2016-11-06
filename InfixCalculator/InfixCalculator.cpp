@@ -14,13 +14,24 @@
 bool InfixCalculator::setInfixExp(const string& inputExpression)
 {
 	infixExp = inputExpression;
-	evaluateExpression();
-	return true;
+
+	if (Parser::isSyntacticallyCorrect(infixExp)) {
+		evaluateExpression();
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 int InfixCalculator::getResult() const
 {
 	return result;
+}
+
+string InfixCalculator::getInfixExp() const
+{
+	return infixExp;
 }
 
 void InfixCalculator::evaluateExpression()
@@ -79,7 +90,7 @@ void InfixCalculator::evaluateExpression()
 			operatorStack.pop();
 	
 		default:
-			string errorMsg = "Unrecognized character passed to InfixConverter: ";
+			string errorMsg = "Unrecognized character passed to InfixCalculator: ";
 			errorMsg += current;
 			throw errorMsg;
 		}
@@ -130,74 +141,5 @@ void InfixCalculator::performOperation()
 
 	valueStack.push(intermediaryResult);
 }
-
-
-//string convertInfixToPostfix(const string& infixExp)
-//{
-//	Stack<int> operandStack;
-//	Stack<char> operatorStack;
-//
-//	char current;
-//
-//	//void performOperation();
-//	//{
-//	//	char operand2 = operandStack.pop();
-//	//};
-//
-//	for (int i = 0; i < (int)infixExp.length(); i++) {
-//
-//		current = infixExp[i];
-//
-//		switch (current) {
-//		case '0': 
-//		case '1':
-//		case '2':
-//		case '3':
-//		case '4':
-//		case '5':
-//		case '6':
-//		case '7':
-//		case '8':
-//		case '9':
-//			operandStack.push(current);
-//			break;
-//
-//		case '(':
-//			operatorStack.push(current);
-//			break;
-//
-//		case '*':
-//		case '/':
-//		case '+':
-//		case '-':
-//			if (operatorStack.isEmpty()) {
-//				operatorStack.push(current);
-//			}
-//			else if ( precedenceOf(current) > precedenceOf(operatorStack.peek()) ) {
-//				operatorStack.push(current);
-//			}
-//			else {
-//				//while (!operatorStack.isEmpty() && precedenceOf(current) <= precedenceOf(operatorStack.peek())) {
-//				//	// performOperation
-//				//}
-//				operatorStack.push(current);
-//			}
-//			break;
-//
-//		case ')':
-//			//while (operatorStack.peek() != '(') {
-//			//	// performOperation
-//			//}
-//			operatorStack.pop();
-//
-//		default:
-//			string errorMsg = "Unrecognized character passed to InfixConverter: ";
-//			errorMsg += current;
-//			throw errorMsg;
-//		}
-//	}
-//
-//	return "";
-//}
 
 #endif

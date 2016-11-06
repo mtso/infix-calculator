@@ -87,14 +87,13 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="InfixCalculatorTests.cpp" />
+    <ClCompile Include="CalculatorTests.cpp" />
     <ClCompile Include="OperatorTests.cpp" />
     <ClCompile Include="ParserTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="CalculatorTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InfixCalculator\InfixCalculator.vcxproj">

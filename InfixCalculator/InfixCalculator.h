@@ -13,6 +13,7 @@
 #include <string>
 #include "StackADT\Stack.h"
 #include "Operator.h"
+#include "Parser.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ private:
 public:
 	bool setInfixExp(const string& inputExpression);
 	int getResult() const;
+	string getInfixExp() const;
 };
 
 #endif
