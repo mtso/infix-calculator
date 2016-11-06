@@ -4,18 +4,17 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+const int TRUEEXP_ARRLEN = 10;
+const int FALSEEXP_ARRLEN = 20;
+
 namespace InfixCalculatorTests
 {
 	TEST_CLASS(ParserTest)
 	{
 	public:
-
-		TEST_METHOD(ParseExpression)
+		TEST_METHOD(ParseTrueExpressions)
 		{
-			const int EXP_ARRLEN = 10;
-
-			char* trueExp[EXP_ARRLEN];
-			char* falseExp[EXP_ARRLEN * 2];
+			char* trueExp[TRUEEXP_ARRLEN];
 
 			trueExp[0] = "1+1";
 			trueExp[1] = "4+(4*4)";
@@ -27,6 +26,15 @@ namespace InfixCalculatorTests
 			trueExp[7] = "((1+1-0*(3/4-(6+2/6*3)+(0*(9-8)/7))/5+3)-2)*1";
 			trueExp[8] = "1+1";
 			trueExp[9] = "1+1";
+
+			for (int i = 0; i < TRUEEXP_ARRLEN; i++) {
+				Assert::IsTrue(Parser::isSyntacticallyCorrect(trueExp[i]));
+			}
+		}
+
+		TEST_METHOD(ParseFalseExpressions)
+		{
+			char* falseExp[FALSEEXP_ARRLEN];
 
 			falseExp[0] = "";
 			falseExp[1] = "2++";
@@ -49,12 +57,7 @@ namespace InfixCalculatorTests
 			falseExp[18] = "3 4";
 			falseExp[19] = "3 4";
 
-
-			for (int i = 0; i < EXP_ARRLEN; i++) {
-				Assert::IsTrue(Parser::isSyntacticallyCorrect(trueExp[i]));
-			}
-
-			for (int i = 0; i < EXP_ARRLEN * 2; i++) {
+			for (int i = 0; i < FALSEEXP_ARRLEN; i++) {
 				Assert::IsFalse(Parser::isSyntacticallyCorrect(falseExp[i]));
 			}
 		}
