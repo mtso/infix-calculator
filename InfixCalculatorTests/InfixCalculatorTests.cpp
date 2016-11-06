@@ -37,13 +37,6 @@ namespace InfixCalculatorTests
 			Assert::AreEqual(54, infcalc.getResult());
 		}
 		
-		TEST_METHOD(Evaluate1m3p4d5m9)
-		{
-			InfixCalculator infcalc;
-			infcalc.setInfixExp("(1)-(3+(4/5))-9");
-			Assert::AreEqual(-11, infcalc.getResult());
-		}
-		
 		TEST_METHOD(Evaluate1p3p4d5x3)
 		{
 			InfixCalculator infcalc;
@@ -56,6 +49,13 @@ namespace InfixCalculatorTests
 			InfixCalculator infcalc;
 			infcalc.setInfixExp("(1+(3+4/5))*3");
 			Assert::AreEqual(12, infcalc.getResult());
+		}
+
+		TEST_METHOD(Evaluate1m3p4d5m9)
+		{
+			InfixCalculator infcalc;
+			infcalc.setInfixExp("(1)-(3+(4/5))-9");
+			Assert::AreEqual(-11, infcalc.getResult());
 		}
 
 		TEST_METHOD(Evaluate1p1x3d4m6p2d6x3p9m8d7d5p3m2m1)
