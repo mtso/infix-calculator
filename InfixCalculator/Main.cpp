@@ -5,28 +5,31 @@
 
 using namespace std;
 
+void toggleFancyMode();
+
 int main(int argc, char** argv)
 {
 
 #ifndef DEBUG
 
-	bool fancyMode = true;
+	bool fancyModeOption = true;
 	bool shouldContinue = true;
 	string inputExp;
 	InfixCalculator calculator;
 	int result;
+	char command;
 
 	string option;
 	for (int i = 0; i < argc; i++) {
 		option = argv[i];
 		if (option == "--plain" || option == "-p" || option == "--debug" || option == "-d") {
-			fancyMode = false;
+			fancyModeOption = false;
 		}
 	}
 
 	system("COLOR 07");
-	if (fancyMode) {
-		system("COLOR F5");
+	if (fancyModeOption) {
+		toggleFancyMode();
 
 		string fancyFirst = " \x0C9\x0BB\x0C9\x0CB\x0BB";
 		string fancySecond = " \x0CC\x0B9\x0BA\x0BA\x0BA";
@@ -43,16 +46,32 @@ int main(int argc, char** argv)
 
 		cout << " Enter an infix expression: ";
 		cin >> inputExp;
+		command = inputExp[0];
 
-		if (toupper(inputExp[0]) == 'Q') {
+		switch (toupper(command)) {
+		case 'H':
+			cout << " > (H)elp: View the available commands." << endl
+				<< " > (C)olor: Toggle fancy colors." << endl
+				<< " > (I)nfo: View information about this calculator program." << endl
+				<< " > (Q)uit: Exit the program." << endl;
+			break;
+
+		case 'C':
+			toggleFancyMode();
+			break;
+
+		case 'I':
+			cout << " > AM-89 is a command line infix calculator built by Adrian Marroquin and " << endl
+				<< " > Matthew Tso for De Anza's CIS 22C in the Fall of 2016 taught by Professor " << endl
+				<< " > Manish Goel." << endl;
+			break;
+
+		case 'Q':
 			shouldContinue = false;
 			break;
-		}
-		else if (toupper(inputExp[0]) == 'H') {
-			cout << " > Enter (h)elp for the available commands or (q)uit to exit the program." << endl;
-		}
-		else {
 
+		default:
+			// Evaluate the input if it wasn't a recognized command.
 			try {
 				result = calculator.setInfixExp(inputExp);
 				cout << " > Result: " << result << endl;
@@ -85,4 +104,13 @@ int main(int argc, char** argv)
 	cout << ' ';
 	system("pause");
 	return 0;
+}
+
+void toggleFancyMode()
+{
+	static bool isFancyMode = false;
+
+	isFancyMode = !isFancyMode;
+	isFancyMode ? system("COLOR F5") : system("COLOR 07");
+	cout << (isFancyMode ? " > Fancy colors on." : " > Fancy colors off.") << endl;
 }
