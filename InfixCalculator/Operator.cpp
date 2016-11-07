@@ -5,16 +5,68 @@
 //#include <string>
 //#include <map>
 
-//Operator::Operator(const char& operatorChar) : rawValue(operatorChar)
-//{
-//
-//}
-
-
 //int Operator::precedence(char ch)
 //{
 //	return precedences[ch];
 //}
+
+OperatorClass::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
+{
+	switch (operatorChar) {
+	case '*':
+		type = MULTIPLICATION;
+		break;
+
+	case '/':
+		type = DIVISION;
+		break;
+
+	case '+':
+		type = ADDITION;
+		break;
+
+	case '-':
+		type = SUBTRACTION;
+		break;
+
+	case '(':
+		type = OPENING_PAREN;
+		break;
+
+	case ')':
+		type = CLOSING_PAREN;
+		break;
+
+	default:
+		throw "Attempted construction of operator with character: " + operatorChar;
+	}
+}
+
+int OperatorClass::operateOn(const int& operandLeft, const int& operandRight) const
+{
+	switch (rawValue) {
+	case '*':
+		return operandLeft * operandRight;
+		
+	case '/':
+		return operandLeft / operandRight;
+
+	case '+':
+		return operandLeft + operandRight;
+
+	case '-':
+		return operandLeft - operandRight;
+
+	default:
+		throw "Invalid operation attempted with " + rawValue;
+	}
+}
+
+int OperatorClass::precedenceAgainst(const OperatorClass& comparand) const
+{
+	return type - comparand.type;
+}
+
 
 int Operator::precedenceOf(const char& test)
 {

@@ -5,23 +5,32 @@
 #ifndef INFIXCALCULATOR_OPERATOR_H
 #define INFIXCALCULATOR_OPERATOR_H
 
-//#include "OperatorType.h"
+#include "OperatorType.h"
 
 using namespace std;
 
-//class Operator
-//{
-//private:
-//	char rawValue;
-//	//int precedence;
-//	//OperatorType type;
-//
-//public:
-//	//Operator(const char& operatorChar);
-//
-//	//int operateOn(const int& operand1, const int& operand2);
-//	//int precedence(char ch);
-//};
+class OperatorClass
+{
+private:
+	char rawValue;
+	OperatorType type;
+
+public:
+	OperatorClass(const char& operatorChar);
+
+	/**
+	 * Returns the result of: operand1 (Operator) operand2
+	 */
+	int operateOn(const int& operandLeft, const int& operandRight) const;
+
+	/**
+	 * Returns:
+	 *  0 Equal precedence
+	 *	1 Greater precedence
+	 * -1 Lesser precednce
+	 */
+	int precedenceAgainst(const OperatorClass& comparand) const;
+};
 
 namespace Operator {
 	// Book's algorithm treats parens as operators with the lowest precedence
