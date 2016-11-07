@@ -9,6 +9,7 @@
 
 using namespace std;
 
+template <int O>
 class OperatorClass
 {
 private:
@@ -30,6 +31,12 @@ public:
 	 * -1 Lesser precednce
 	 */
 	int precedenceAgainst(const OperatorClass& comparand) const;
+};
+
+template <>
+class OperatorClass<'*'>
+{
+	int operateOn(const int& operandLeft, const int& operandRight) const;
 };
 
 namespace Operator {

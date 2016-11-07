@@ -10,8 +10,44 @@
 //	return precedences[ch];
 //}
 
+template <>
+int OperatorClass<'*'>::operateOn(const int& operandLeft, const int& operandRight) const
+{
+	return operandLeft * operandRight;
+}
+
+template <int O>
 OperatorClass::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
 {
+	/*switch (O) {
+	case '*':
+		type = MULTIPLICATION;
+		break;
+
+	case '/':
+		type = DIVISION;
+		break;
+
+	case '+':
+		type = ADDITION;
+		break;
+
+	case '-':
+		type = SUBTRACTION;
+		break;
+
+	case '(':
+		type = OPENING_PAREN;
+		break;
+
+	case ')':
+		type = CLOSING_PAREN;
+		break;
+
+	default:
+		throw "Attempted construction of operator with character: " + operatorChar;
+	}*/
+	
 	switch (operatorChar) {
 	case '*':
 		type = MULTIPLICATION;
@@ -42,6 +78,7 @@ OperatorClass::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
 	}
 }
 
+template <int O>
 int OperatorClass::operateOn(const int& operandLeft, const int& operandRight) const
 {
 	switch (rawValue) {
@@ -62,6 +99,7 @@ int OperatorClass::operateOn(const int& operandLeft, const int& operandRight) co
 	}
 }
 
+template <int O>
 int OperatorClass::precedenceAgainst(const OperatorClass& comparand) const
 {
 	return type - comparand.type;
