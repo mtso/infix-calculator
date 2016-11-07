@@ -26,16 +26,51 @@ private:
 	Stack<int> valueStack;
 	Stack<char> operatorStack;
 	string infixExp;
-	//string postfixExp;
+	string postfixExp;
+
+	// Stores the result of the evaluated infix expression
 	int result;
 
-	void performOperation();
+	/**
+	 * Calculates the expression stored in infixExp.
+	 */
 	void evaluateExpression();
 
+	/**
+	 * Pops and performs the top operator on the top two operands.
+	 * Then pushes the result onto the integer stack.
+	 */
+	void performOperation();
+
+	/**
+	 * Pushes an operator onto the operator stack.
+	 * Makes sure that all operators of greater precedence
+	 * before it are properly popped and evaluated.
+	 */
+	void safelyPushOperator(const char& current);
+
 public:
+	/**
+	 * Takes in an input expression, then evaluates it,
+	 * and then stores and returns the result.
+	 * Will throw if the input expression is syntactically incorrect.
+	 */
 	int setInfixExp(const string& inputExpression);
+
+	/**
+	 * Returns the result of the last-set input expression.
+	 */
 	int getResult() const;
+
+	/**
+	 * Returns the last-set input expression in infix form.
+	 */
 	string getInfixExp() const;
+
+	/**
+	 * Gets a stack of all previous calculations.
+	 */
+	//Stack<int> getHistory() const;
 };
 
 #endif

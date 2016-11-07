@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 	string option;
 	for (int i = 0; i < argc; i++) {
 		option = argv[i];
-		if (option == "--plain" || option == "-p" || option == "--debug" || option == "-d") {
+		if (option == "--plain" || option == "-p") {
 			fancyModeOption = false;
 		}
 	}
@@ -31,15 +31,15 @@ int main(int argc, char** argv)
 	if (fancyModeOption) {
 		toggleFancyMode();
 
-		string fancyFirst = " \x0C9\x0BB\x0C9\x0CB\x0BB";
+		string fancyFirst  = " \x0C9\x0BB\x0C9\x0CB\x0BB";
 		string fancySecond = " \x0CC\x0B9\x0BA\x0BA\x0BA";
 		fancySecond.append("INSTRUMENTS");
 
-		cout << fancyFirst << endl;
+		cout << fancyFirst  << endl;
 		cout << fancySecond << endl << endl;
-		cout << " == AM-89 Infix Calculator ==" << endl;
 	}
 
+	cout << " == AM-89 Infix Calculator ==" << endl;
 	cout << " (H)elp to view available commands\n (Q)uit to exit the program" << endl << endl;
 
 	while (shouldContinue) {
@@ -88,6 +88,8 @@ int main(int argc, char** argv)
 	system("COLOR 07");
 
 #else
+
+	system("COLOR 07");
 
 	// DEBUGOUTPUT ROUTINE
 	InfixCalculator infcalc;
