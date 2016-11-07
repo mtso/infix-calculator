@@ -10,11 +10,6 @@
 //	return precedences[ch];
 //}
 
-template <>
-int OperatorClass<'*'>::operateOn(const int& operandLeft, const int& operandRight) const
-{
-	return operandLeft * operandRight;
-}
 
 template <int O>
 OperatorClass::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
@@ -128,4 +123,11 @@ int Operator::precedenceOf(const char& test)
 	}
 }
 
+
+
+template <>
+int OperatorClass<'*'>::operateOn(const int& operandLeft, const int& operandRight) const
+{
+	return operandLeft * operandRight;
+}
 #endif
