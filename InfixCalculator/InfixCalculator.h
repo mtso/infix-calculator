@@ -66,11 +66,6 @@ public:
 	 * Returns the last-set input expression in infix form.
 	 */
 	string getInfixExp() const;
-
-	/**
-	 * Gets a stack of all previous calculations.
-	 */
-	//Stack<int> getHistory() const;
 };
 
 #endif

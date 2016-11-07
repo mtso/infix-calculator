@@ -162,7 +162,7 @@ void InfixCalculator::evaluateExpression()
 		performOperation();
 	}
 
-	result = valueStack.peek();
+	result = valueStack.pop();
 }
 
 void InfixCalculator::safelyPushOperator(const char& current)
