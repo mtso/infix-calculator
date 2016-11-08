@@ -27,18 +27,6 @@
     <ClCompile Include="StackADT\Logger\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StackADT\List.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StackADT\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StackADT\Queue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StackADT\Stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InfixCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -54,18 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StackADT\Collection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StackADT\List.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StackADT\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StackADT\Queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StackADT\Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InfixCalculator.h">

@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{41D1AD96-9CEA-4E8E-83F4-1C012ABD66ED}</ProjectGuid>
-    <RootNamespace>StackADT</RootNamespace>
+    <ProjectGuid>{038A2D2B-08D2-40BA-8E05-FCCB27EECAFA}</ProjectGuid>
+    <RootNamespace>ADTLibrary</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,22 +64,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Currency.cpp" />
-    <ClCompile Include="List.cpp" />
-    <ClCompile Include="Logger\Logger.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Queue.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Currency.h" />
-    <ClInclude Include="Collection.h" />
-    <ClInclude Include="List.h" />
-    <ClInclude Include="Logger\Logger.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="Queue.h" />
-    <ClInclude Include="Stack.h" />
+    <Library Include="ADT.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -38,7 +38,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -48,6 +51,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -69,11 +73,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
-    <ClCompile Include="StackADT\List.cpp" />
     <ClCompile Include="StackADT\Logger\Logger.cpp" />
-    <ClCompile Include="StackADT\Node.cpp" />
-    <ClCompile Include="StackADT\Queue.cpp" />
-    <ClCompile Include="StackADT\Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InfixCalculator.h" />
@@ -81,11 +81,12 @@
     <ClInclude Include="OperatorPrecedence.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="StackADT\Collection.h" />
-    <ClInclude Include="StackADT\List.h" />
     <ClInclude Include="StackADT\Logger\Logger.h" />
-    <ClInclude Include="StackADT\Node.h" />
-    <ClInclude Include="StackADT\Queue.h" />
-    <ClInclude Include="StackADT\Stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADTLibrary\ADTLibrary.vcxproj">
+      <Project>{038a2d2b-08d2-40ba-8e05-fccb27eecafa}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

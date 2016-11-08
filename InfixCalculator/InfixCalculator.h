@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <string>
-#include "StackADT\Stack.h"
+#include "\ADTLibrary\Stack.h"
 #include "Operator.h"
 #include "Parser.h"
 

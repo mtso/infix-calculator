@@ -11,7 +11,7 @@
  * The Class provides the boolean function isEmpty.
  */
 
-#include "List.h"
+//#include "List.h"
 
 template <typename DataType>
 class Stack : protected List<DataType>
@@ -44,11 +44,11 @@ public:
 	 */
 	DataType pop();
 
-	/*
-	* Peek returns the value of the first item from the stack.
-	*/
+	/**
+	 * Peek returns the value of the first item from the stack.
+	 */
 	DataType peek();
 };
 
-#include "Stack.cpp"
+//#include "Stack.cpp"
 #endif
