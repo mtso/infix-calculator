@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "InfixCalculator.h"
+#include <string>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -18,9 +19,12 @@ namespace InfixCalculatorTests
 
 		TEST_METHOD(Evaluate1p1)
 		{
+			string infixExp = "1+1";
+			string expectedPostfix = "11+";
 			InfixCalculator infcalc;
-			infcalc.setInfixExp("1+1");
+			infcalc.setInfixExp(infixExp);
 			Assert::AreEqual(2, infcalc.getResult());
+			Assert::AreEqual(expectedPostfix, infcalc.getPostfixExp());
 		}
 
 		TEST_METHOD(Evaluate3x3)
@@ -46,9 +50,12 @@ namespace InfixCalculatorTests
 
 		TEST_METHOD(Evaluate1p3p4d5x3withExtraParens)
 		{
+			string infixExp = "(1+(3+4/5))*3";
+			string expectedPostfix = "1345/++3*";
 			InfixCalculator infcalc;
-			infcalc.setInfixExp("(1+(3+4/5))*3");
+			infcalc.setInfixExp(infixExp);
 			Assert::AreEqual(12, infcalc.getResult());
+			Assert::AreEqual(expectedPostfix, infcalc.getPostfixExp());
 		}
 
 		TEST_METHOD(Evaluate1m3p4d5m9)
@@ -74,9 +81,12 @@ namespace InfixCalculatorTests
 
 		TEST_METHOD(Evaluate1p1m0x3d4m6p2d6x3p0x9m8d7d5p3m2m1p1p1m0x3d4m6p2d6x3p0x9m8d7d5p3m2x1)
 		{
+			string infixExp = "((1+1-0*(3/4-(6+2/6*3)+(0*(9-8)/7))/5+3)-2)*1+((1+1-0*(3/4-(6+2/6*3)+(0*(9-8)/7))/5+3)-2)*1";
+			string expectedPostfix = "11+034/626/3*+-098-*7/+*5/-3+2-1*11+034/626/3*+-098-*7/+*5/-3+2-1*+";
 			InfixCalculator infcalc;
-			infcalc.setInfixExp("((1+1-0*(3/4-(6+2/6*3)+(0*(9-8)/7))/5+3)-2)*1+((1+1-0*(3/4-(6+2/6*3)+(0*(9-8)/7))/5+3)-2)*1");
+			infcalc.setInfixExp(infixExp);
 			Assert::AreEqual(6, infcalc.getResult());
+			Assert::AreEqual(expectedPostfix, infcalc.getPostfixExp());
 		}
 
 		TEST_METHOD(V2Evaluate1p1m0x3d4m6p2d6x3p0x9m8d7d5p3m2m1p1p1m0x3d4m6p2d6x3p0x9m8d7d5p3m2x1)

@@ -26,7 +26,7 @@ Operator::Operator(const char& operatorChar) : rawValue(operatorChar)
 	}
 }
 
-int Operator::operateOn(const int& operandLeft, const int& operandRight) const
+int Operator::performOn(const int& operandLeft, const int& operandRight) const
 {
 	switch (rawValue) {
 	case '*':

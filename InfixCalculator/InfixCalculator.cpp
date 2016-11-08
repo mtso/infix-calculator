@@ -87,6 +87,7 @@ int InfixCalculator::setInfixExp(const string& inputExpression)
 {
 	if (Parser::isSyntacticallyCorrect(inputExpression)) {
 		infixExp = inputExpression;
+		postfixExp = "";
 		evaluateExpression();
 		return result;
 	}
@@ -105,30 +106,39 @@ string InfixCalculator::getInfixExp() const
 	return infixExp;
 }
 
+string InfixCalculator::getPostfixExp() const
+{
+	return postfixExp;
+}
+
 void InfixCalculator::evaluateExpression()
 {
 	char current;
 
-	for (int i = 0; i < (int)infixExp.length(); i++) {
-
+	for (int i = 0; i < (int)infixExp.length(); i++) 
+	{
 		current = infixExp[i];
+
 #ifdef DEBUG
-		// DEBUGOUTPUT
 		cout << "Evaluating: " << current << endl;
 #endif
 
-		if (isdigit(current)) {
+		if (isdigit(current)) 
+		{
 			valueStack.push(atoi(&current));
 
+			// Immediately append operand to postfix string.
+			postfixExp.append(string(1, current));
+
 #ifdef DEBUG
-			// DEBUGOUTPUT
 			cout << "valueStack top: " << valueStack.peek() << endl;
 #endif
 			continue;
 		}
 
 		// If the current is not a digit, it must be an operator.
-		switch (current) {
+		switch (current) 
+		{
 		case '(':
 			// Open paren is lowest precedence and is always pushed.
 			operatorStack.push(Operator(current));
@@ -158,7 +168,8 @@ void InfixCalculator::evaluateExpression()
 		}
 	}
 
-	while (!operatorStack.isEmpty()) {
+	while (!operatorStack.isEmpty()) 
+	{
 		performOperation();
 	}
 
@@ -176,7 +187,8 @@ void InfixCalculator::safelyPushOperator(const char& currentChar)
 		operatorStack.push(op);
 	}
 	else {
-		while (!operatorStack.isEmpty() && op.precedenceAgainst(operatorStack.peek()) <= 0) {
+		while ( !operatorStack.isEmpty() && 
+			     op.precedenceAgainst(operatorStack.peek()) <= 0 ) {
 			performOperation();
 		}
 		operatorStack.push(op);
@@ -185,20 +197,23 @@ void InfixCalculator::safelyPushOperator(const char& currentChar)
 
 void InfixCalculator::performOperation()
 {
-	int operandRight = valueStack.pop();
-	int operandLeft = valueStack.pop();
-	Operator op = operatorStack.pop();
-	int intermediaryResult;
+	int right = valueStack.pop();
+	int left = valueStack.pop();
+	Operator operation = operatorStack.pop();
+	int result;
 
-	intermediaryResult = op.operateOn(operandLeft, operandRight);
+	result = operation.performOn(left, right);
 
 #ifdef DEBUG
-	// DEBUGOUTPUT
-	cout << "Left: " << operandLeft << ", Right: " << operandRight << ", Operator: " << op.getRawValue() << endl;
-	cout << "Intermediary result: " << intermediaryResult << endl;
+	cout << "Left: " << left << ", Right: " << right << ", Operator: " << operation.getRawValue() << endl;
+	cout << "Intermediary result: " << result << endl;
 #endif
 
-	valueStack.push(intermediaryResult);
+	valueStack.push(result);
+
+	// Append operator to postfix expression at the time of value evaluation.
+	string opChar = string(1, operation.getRawValue());
+	postfixExp.append(opChar);
 }
 
 #endif

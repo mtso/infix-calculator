@@ -91,12 +91,13 @@ int main(int argc, char** argv)
 
 	system("COLOR 07");
 
-	// DEBUGOUTPUT ROUTINE
+	// DEBUGGING OUTPUT
 	InfixCalculator infcalc;
 	string expression = "3*(3+3)*3";
 	try {
 		int result = infcalc.setInfixExp(expression);
-		cout << "\x1b[6m Final result: " << result << endl;
+		cout << "Final result: " << result << endl;
+		cout << infcalc.getPostfixExp() << endl;
 	}
 	catch (string error) {
 		cout << "Error setting expression: " << error << endl;

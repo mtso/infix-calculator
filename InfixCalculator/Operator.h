@@ -24,7 +24,7 @@ public:
 	/**
 	 * Returns the result of: operand1 (Operator) operand2
 	 */
-	int operateOn(const int& operandLeft, const int& operandRight) const;
+	int performOn(const int& operandLeft, const int& operandRight) const;
 
 	/**
 	 * Returns:

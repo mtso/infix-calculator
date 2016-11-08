@@ -66,6 +66,8 @@ public:
 	 * Returns the last-set input expression in infix form.
 	 */
 	string getInfixExp() const;
+
+	string getPostfixExp() const;
 };
 
 #endif
