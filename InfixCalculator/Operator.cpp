@@ -12,7 +12,7 @@
 
 
 template <int O>
-OperatorClass::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
+OperatorClass<O>::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
 {
 	/*switch (O) {
 	case '*':
@@ -74,7 +74,7 @@ OperatorClass::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
 }
 
 template <int O>
-int OperatorClass::operateOn(const int& operandLeft, const int& operandRight) const
+int OperatorClass<O>::operateOn(const int& operandLeft, const int& operandRight) const
 {
 	switch (rawValue) {
 	case '*':
@@ -95,7 +95,7 @@ int OperatorClass::operateOn(const int& operandLeft, const int& operandRight) co
 }
 
 template <int O>
-int OperatorClass::precedenceAgainst(const OperatorClass& comparand) const
+int OperatorClass<O>::precedenceAgainst(const OperatorClass& comparand) const
 {
 	return type - comparand.type;
 }
@@ -124,10 +124,28 @@ int Operator::precedenceOf(const char& test)
 }
 
 
-
 template <>
 int OperatorClass<'*'>::operateOn(const int& operandLeft, const int& operandRight) const
 {
 	return operandLeft * operandRight;
 }
+
+template <>
+int OperatorClass<'/'>::operateOn(const int& operandLeft, const int& operandRight) const
+{
+	return operandLeft / operandRight;
+}
+
+template <>
+int OperatorClass<'+'>::operateOn(const int& operandLeft, const int& operandRight) const
+{
+	return operandLeft + operandRight;
+}
+
+template <>
+int OperatorClass<'-'>::operateOn(const int& operandLeft, const int& operandRight) const
+{
+	return operandLeft - operandRight;
+}
+
 #endif

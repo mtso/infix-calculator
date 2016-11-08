@@ -33,12 +33,6 @@ public:
 	int precedenceAgainst(const OperatorClass& comparand) const;
 };
 
-template <>
-class OperatorClass<'*'>
-{
-	int operateOn(const int& operandLeft, const int& operandRight) const;
-};
-
 namespace Operator {
 	// Book's algorithm treats parens as operators with the lowest precedence
 	int precedenceOf(const char& test);
