@@ -17,8 +17,6 @@ private:
 	OperatorPrecedence precedence;
 
 public:
-	//template <int O>
-	//OperatorClass();
 	Operator(const char& operatorChar);
 
 	/**
@@ -39,6 +37,10 @@ public:
 	bool operator!= (const char& right) const;
 
 	char getRawValue() const;
+
+	bool operator> (const Operator& right) const;
+
+	bool operator<= (const Operator& right) const;
 };
 
 #endif

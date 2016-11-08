@@ -66,4 +66,14 @@ char Operator::getRawValue() const
 	return rawValue;
 }
 
+bool Operator::operator> (const Operator& right) const
+{
+	return precedence > right.precedence;
+}
+
+bool Operator::operator<= (const Operator& right) const
+{
+	return precedence <= right.precedence;
+}
+
 #endif

@@ -111,12 +111,11 @@ void InfixCalculator::safelyPushOperator(const char& currentChar)
 	if (operatorStack.isEmpty()) {
 		operatorStack.push(op);
 	}
-	else if (op.precedenceAgainst(operatorStack.peek()) > 0) {
+	else if (op > operatorStack.peek()) {
 		operatorStack.push(op);
 	}
 	else {
-		while ( !operatorStack.isEmpty() && 
-			     op.precedenceAgainst(operatorStack.peek()) <= 0 ) {
+		while (!operatorStack.isEmpty() && op <= operatorStack.peek()) {
 			performOperation();
 		}
 		operatorStack.push(op);
