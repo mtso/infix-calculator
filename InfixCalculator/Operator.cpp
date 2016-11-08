@@ -2,70 +2,23 @@
 #define INFIXCALCULATOR_OPERATOR_CPP
 
 #include "Operator.h"
-//#include <string>
-//#include <map>
 
-//int Operator::precedence(char ch)
-//{
-//	return precedences[ch];
-//}
-
-
-template <int O>
-OperatorClass<O>::OperatorClass(const char& operatorChar) : rawValue(operatorChar)
+Operator::Operator(const char& operatorChar) : rawValue(operatorChar)
 {
-	/*switch (O) {
-	case '*':
-		type = MULTIPLICATION;
-		break;
-
-	case '/':
-		type = DIVISION;
-		break;
-
-	case '+':
-		type = ADDITION;
-		break;
-
-	case '-':
-		type = SUBTRACTION;
-		break;
-
-	case '(':
-		type = OPENING_PAREN;
-		break;
-
-	case ')':
-		type = CLOSING_PAREN;
-		break;
-
-	default:
-		throw "Attempted construction of operator with character: " + operatorChar;
-	}*/
-	
 	switch (operatorChar) {
 	case '*':
-		type = MULTIPLICATION;
-		break;
-
 	case '/':
-		type = DIVISION;
+		precedence = MULTI_DIVIDE;
 		break;
 
 	case '+':
-		type = ADDITION;
-		break;
-
 	case '-':
-		type = SUBTRACTION;
+		precedence = ADD_SUBTRACT;
 		break;
 
 	case '(':
-		type = OPENING_PAREN;
-		break;
-
 	case ')':
-		type = CLOSING_PAREN;
+		precedence = PARENTHESES;
 		break;
 
 	default:
@@ -73,8 +26,7 @@ OperatorClass<O>::OperatorClass(const char& operatorChar) : rawValue(operatorCha
 	}
 }
 
-template <int O>
-int OperatorClass<O>::operateOn(const int& operandLeft, const int& operandRight) const
+int Operator::operateOn(const int& operandLeft, const int& operandRight) const
 {
 	switch (rawValue) {
 	case '*':
@@ -94,58 +46,24 @@ int OperatorClass<O>::operateOn(const int& operandLeft, const int& operandRight)
 	}
 }
 
-template <int O>
-int OperatorClass<O>::precedenceAgainst(const OperatorClass& comparand) const
+int Operator::precedenceAgainst(const Operator& comparand) const
 {
-	return type - comparand.type;
+	return precedence - comparand.precedence;
 }
 
-
-int Operator::precedenceOf(const char& test)
+bool Operator::operator== (const Operator& right) const
 {
-	switch (test)
-	{
-	case '*':
-	case '/':
-		//case '%':
-		return 2;
-
-	case '+':
-	case '-':
-		return 1;
-
-	case '(':
-	case ')':
-		return 0;
-
-	default:
-		throw "Tried to test the precedence of a character that was not one of: ()*/%+-";
-	}
+	return rawValue == right.rawValue;
 }
 
-
-template <>
-int OperatorClass<'*'>::operateOn(const int& operandLeft, const int& operandRight) const
+bool Operator::operator!= (const char& right) const
 {
-	return operandLeft * operandRight;
+	return rawValue != right;
 }
 
-template <>
-int OperatorClass<'/'>::operateOn(const int& operandLeft, const int& operandRight) const
+char Operator::getRawValue() const
 {
-	return operandLeft / operandRight;
-}
-
-template <>
-int OperatorClass<'+'>::operateOn(const int& operandLeft, const int& operandRight) const
-{
-	return operandLeft + operandRight;
-}
-
-template <>
-int OperatorClass<'-'>::operateOn(const int& operandLeft, const int& operandRight) const
-{
-	return operandLeft - operandRight;
+	return rawValue;
 }
 
 #endif

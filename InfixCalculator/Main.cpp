@@ -96,7 +96,7 @@ int main(int argc, char** argv)
 	string expression = "3*(3+3)*3";
 	try {
 		int result = infcalc.setInfixExp(expression);
-		cout << "Final result: " << result << endl;
+		cout << "\x1b[6m Final result: " << result << endl;
 	}
 	catch (string error) {
 		cout << "Error setting expression: " << error << endl;

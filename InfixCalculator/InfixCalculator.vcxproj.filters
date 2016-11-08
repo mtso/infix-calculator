@@ -68,10 +68,10 @@
     <ClInclude Include="StackADT\Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OperatorType.h">
+    <ClInclude Include="InfixCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InfixCalculator.h">
+    <ClInclude Include="OperatorPrecedence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

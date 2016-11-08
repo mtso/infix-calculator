@@ -78,7 +78,7 @@
   <ItemGroup>
     <ClInclude Include="InfixCalculator.h" />
     <ClInclude Include="Operator.h" />
-    <ClInclude Include="OperatorType.h" />
+    <ClInclude Include="OperatorPrecedence.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="StackADT\Collection.h" />
     <ClInclude Include="StackADT\List.h" />

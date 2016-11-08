@@ -45,15 +45,15 @@ string convertInfixToPostfix(const string& inputString)
 			if (operatorStack.isEmpty()) {
 				operatorStack.push(current);
 			}
-			else if (Operator::precedenceOf(current) > Operator::precedenceOf(operatorStack.peek())) {
-				operatorStack.push(current);
-			}
-			else {
-				while (!operatorStack.isEmpty() && Operator::precedenceOf(current) <= Operator::precedenceOf(operatorStack.peek())) {
-					//performOperation();
-				}
-				operatorStack.push(current);
-			}
+			//else if (Operator::precedenceOf(current) > Operator::precedenceOf(operatorStack.peek())) {
+			//	operatorStack.push(current);
+			//}
+			//else {
+			//	while (!operatorStack.isEmpty() && Operator::precedenceOf(current) <= Operator::precedenceOf(operatorStack.peek())) {
+			//		//performOperation();
+			//	}
+			//	operatorStack.push(current);
+			//}
 			break;
 
 		case ')':
@@ -131,7 +131,7 @@ void InfixCalculator::evaluateExpression()
 		switch (current) {
 		case '(':
 			// Open paren is lowest precedence and is always pushed.
-			operatorStack.push(current);
+			operatorStack.push(Operator(current));
 			break;
 	
 		case '*':
@@ -165,19 +165,21 @@ void InfixCalculator::evaluateExpression()
 	result = valueStack.pop();
 }
 
-void InfixCalculator::safelyPushOperator(const char& current)
+void InfixCalculator::safelyPushOperator(const char& currentChar)
 {
+	Operator op = Operator(currentChar);
+
 	if (operatorStack.isEmpty()) {
-		operatorStack.push(current);
+		operatorStack.push(op);
 	}
-	else if (Operator::precedenceOf(current) > Operator::precedenceOf(operatorStack.peek())) {
-		operatorStack.push(current);
+	else if (op.precedenceAgainst(operatorStack.peek()) > 0) {
+		operatorStack.push(op);
 	}
 	else {
-		while (!operatorStack.isEmpty() && Operator::precedenceOf(current) <= Operator::precedenceOf(operatorStack.peek())) {
+		while (!operatorStack.isEmpty() && op.precedenceAgainst(operatorStack.peek()) <= 0) {
 			performOperation();
 		}
-		operatorStack.push(current);
+		operatorStack.push(op);
 	}
 }
 
@@ -185,39 +187,14 @@ void InfixCalculator::performOperation()
 {
 	int operandRight = valueStack.pop();
 	int operandLeft = valueStack.pop();
-	char operatorChar = operatorStack.pop();
+	Operator op = operatorStack.pop();
 	int intermediaryResult;
 
-	// TODO: Make an Operator class such that the following can replace the switch statement:
-	// intermediaryResult = operatorChar.operateOn(operandLeft, operandRight);
-
-	switch (operatorChar)
-	{
-	case '*':
-		intermediaryResult = operandLeft * operandRight;
-		break;
-
-	case '/':
-		intermediaryResult = operandLeft / operandRight;
-		break;
-
-	case '+':
-		intermediaryResult = operandLeft + operandRight;
-		break;
-
-	case '-':
-		intermediaryResult = operandLeft - operandRight;
-		break;
-
-	default:
-		string errorMessage = "Attempted an invalid operation using: ";
-		errorMessage += operatorChar;
-		throw errorMessage;
-	}
+	intermediaryResult = op.operateOn(operandLeft, operandRight);
 
 #ifdef DEBUG
 	// DEBUGOUTPUT
-	cout << "Left: " << operandLeft << ", Right: " << operandRight << ", Operator: " << operatorChar << endl;
+	cout << "Left: " << operandLeft << ", Right: " << operandRight << ", Operator: " << op.getRawValue() << endl;
 	cout << "Intermediary result: " << intermediaryResult << endl;
 #endif
 

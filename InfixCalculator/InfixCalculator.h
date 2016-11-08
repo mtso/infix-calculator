@@ -24,7 +24,7 @@ class InfixCalculator
 {
 private:
 	Stack<int> valueStack;
-	Stack<char> operatorStack;
+	Stack<Operator> operatorStack;
 	string infixExp;
 	string postfixExp;
 
