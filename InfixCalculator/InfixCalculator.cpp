@@ -128,7 +128,7 @@ void InfixCalculator::evaluateExpression()
 			valueStack.push(atoi(&current));
 
 			// Immediately append operand to postfix string.
-			postfixExp.append(string(1, current));
+			postfixExp += current;
 
 #ifdef DEBUG
 			cout << "valueStack top: " << valueStack.peek() << endl;
@@ -212,8 +212,7 @@ void InfixCalculator::performOperation()
 	valueStack.push(result);
 
 	// Append operator to postfix expression at the time of value evaluation.
-	string opChar = string(1, operation.getRawValue());
-	postfixExp.append(opChar);
+	postfixExp += operation.getRawValue();
 }
 
 #endif
