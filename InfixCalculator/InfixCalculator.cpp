@@ -11,78 +11,6 @@
 
 #include "InfixCalculator.h"
 
-// Adrian's corner
-string convertInfixToPostfix(const string& inputString)
-{
-	Stack<int> valueStack;
-	Stack<char> operatorStack;
-	string postfixExp;
-
-	for (char current : inputString)
-	{
-		switch (current)
-		{
-		case '0':
-		case '1':
-		case '2':
-		case '3':
-		case '4':
-		case '5':
-		case '6':
-		case '7':
-		case '8':
-		case '9':
-			valueStack.push(atoi(&current));
-			break;
-		case '(':
-			operatorStack.push(current);
-			break;
-
-		case '*':
-		case '/':
-		case '+':
-		case '-':
-			if (operatorStack.isEmpty()) {
-				operatorStack.push(current);
-			}
-			//else if (Operator::precedenceOf(current) > Operator::precedenceOf(operatorStack.peek())) {
-			//	operatorStack.push(current);
-			//}
-			//else {
-			//	while (!operatorStack.isEmpty() && Operator::precedenceOf(current) <= Operator::precedenceOf(operatorStack.peek())) {
-			//		//performOperation();
-			//	}
-			//	operatorStack.push(current);
-			//}
-			break;
-
-		case ')':
-			while (operatorStack.peek() != '(') {
-				//performOperation();
-			}
-			operatorStack.pop();
-			break;
-
-		default:
-			string errorMsg = "Unrecognized character passed to InfixCalculator: ";
-			errorMsg += current;
-			throw errorMsg;
-		}
-		// Display Current state of stacks
-		// not implemented
-
-		// PostFix Expression Builder
-		if (valueStack.getLength() == 2 && operatorStack.getLength() == 1)
-		{
-			postfixExp.append(to_string(valueStack.pop()));
-			postfixExp.append(to_string(valueStack.pop()));
-			postfixExp.append(to_string(operatorStack.pop()));
-		}
-	}
-	return postfixExp;
-}
-// End Adrian's Corner
-
 int InfixCalculator::setInfixExp(const string& inputExpression)
 {
 	if (Parser::isSyntacticallyCorrect(inputExpression)) {
@@ -211,7 +139,7 @@ void InfixCalculator::performOperation()
 
 	valueStack.push(result);
 
-	// Append operator to postfix expression at the time of value evaluation.
+	// Append operator to postfix expression after each operand evaluation.
 	postfixExp += operation.getRawValue();
 }
 

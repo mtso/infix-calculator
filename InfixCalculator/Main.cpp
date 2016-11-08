@@ -75,6 +75,7 @@ int main(int argc, char** argv)
 			// Evaluate the input if it wasn't a recognized command.
 			try {
 				result = calculator.setInfixExp(inputExp);
+				cout << " > Postfix: " << calculator.getPostfixExp() << endl;
 				cout << " > Result: " << result << endl;
 			}
 			catch (string error) {
