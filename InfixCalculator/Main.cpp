@@ -52,6 +52,7 @@ int main(int argc, char** argv)
 		case 'H':
 			cout << " > (H)elp: View the available commands." << endl
 				<< " > (C)olor: Toggle fancy colors." << endl
+				<< " > (R)eset: Clear screen of all previous commands." << endl
 				<< " > (I)nfo: View information about this calculator program." << endl
 				<< " > (Q)uit: Exit the program." << endl;
 			break;
@@ -59,6 +60,10 @@ int main(int argc, char** argv)
 		case 'C':
 			fancyModeOption = toggleFancyMode();
 			cout << (fancyModeOption ? " > Fancy colors on." : " > Fancy colors off.") << endl;
+			break;
+
+		case 'R':
+			system("cls");
 			break;
 
 		case 'I':
@@ -86,7 +91,7 @@ int main(int argc, char** argv)
 	}
 
 	cout << endl << " Bye bye-- See you next time :)" << endl;
-	system("COLOR 07");
+	//system("COLOR 07");
 
 #else
 
