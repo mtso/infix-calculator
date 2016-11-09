@@ -46,7 +46,7 @@ namespace InfixCalculatorTests
 			try {
 				openP.performOn(2, 3);
 			}
-			catch (char* error) {
+			catch (const char* error) {
 				Assert::AreEqual("Attempted construction of operator with character: (", error);
 			}
 			catch (...) {
@@ -62,7 +62,7 @@ namespace InfixCalculatorTests
 			try {
 				closingP.performOn(2, 3);
 			}
-			catch (char* error) {
+			catch (const char* error) {
 				Assert::AreEqual("Attempted construction of operator with character: )", error);
 			}
 			catch (...) {
