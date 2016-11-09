@@ -100,7 +100,7 @@ int main(int argc, char** argv)
 				cout << " > Result: " << result << endl << endl;
 			}
 			catch (string error) {
-				cout << TEXT_ERROR << endl;
+				cout << TEXT_ERROR << endl << endl;
 			}
 		}
 

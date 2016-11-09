@@ -50,8 +50,9 @@ const char* TEXT_ERROR        = " > Invalid syntax, please try again.";
 const char* TEXT_HELP         = " > (H)elp: View the available commands.\n"
                                 " > (C)olor: Toggle fancy colors.\n"
 								" > (I)nfo: View information about this calculator program.\n"
-								" > (Q)uit: Exit the program.\n";
-const char* TEXT_COLOR_ON     = " > Fancy colors on.\n";
+								" > (Q)uit: Exit the program.\n"
+								" > Any other command is assumed to be an arithmetic expression.\n";
+const char* TEXT_COLOR_ON = " > Fancy colors on.\n";
 const char* TEXT_COLOR_OFF    = " > Fancy colors off.\n";
 const char* TEXT_INFO         = " > AM-89 is a command line infix calculator built by Adrian Marroquin and\n"
                                 " > Matthew Tso for De Anza's CIS 22C in the Fall of 2016 taught by Professor\n"
