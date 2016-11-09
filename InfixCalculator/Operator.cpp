@@ -1,3 +1,7 @@
+// Operator.cpp
+// Lab 3: Infix Calculator
+// CIS 22C F2016: Adrian Marroquin, Matthew Tso
+
 #ifndef INFIXCALCULATOR_OPERATOR_CPP
 #define INFIXCALCULATOR_OPERATOR_CPP
 
@@ -26,6 +30,8 @@ Operator::Operator(const char& operatorChar) : rawValue(operatorChar)
 	}
 }
 
+// I wish this could be polymorphic, but how can an 
+// operator char be mapped to an operator literal?
 int Operator::performOn(const int& operandLeft, const int& operandRight) const
 {
 	switch (rawValue) {
@@ -51,6 +57,8 @@ int Operator::precedenceAgainst(const Operator& comparand) const
 	return precedence - comparand.precedence;
 }
 
+// OPERATOR OVERLOADS
+
 bool Operator::operator== (const Operator& right) const
 {
 	return rawValue == right.rawValue;
@@ -61,10 +69,6 @@ bool Operator::operator!= (const char& right) const
 	return rawValue != right;
 }
 
-char Operator::getRawValue() const
-{
-	return rawValue;
-}
 
 bool Operator::operator> (const Operator& right) const
 {
@@ -74,6 +78,13 @@ bool Operator::operator> (const Operator& right) const
 bool Operator::operator<= (const Operator& right) const
 {
 	return precedence <= right.precedence;
+}
+
+// ACCESSOR
+
+char Operator::getRawValue() const
+{
+	return rawValue;
 }
 
 #endif

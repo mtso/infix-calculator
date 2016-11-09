@@ -1,13 +1,6 @@
-// InfixConverter.h
-// Lab 3: Postfix Operations
-// CIS 22C F2016: Adrian Marroquin, Matthew Tso\
-
-/**
-* Converts an infix expression into postfix form
-*/
-
-#ifndef INFIXCALCULATOR_INFIXCONVERTER_CPP
-#define INFIXCALCULATOR_INFIXCONVERTER_CPP
+// InfixCalculator.cpp
+// Lab 3: Infix Calculator
+// CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
 #include "InfixCalculator.h"
 
@@ -15,7 +8,7 @@ int InfixCalculator::setInfixExp(const string& inputExpression)
 {
 	if (Parser::isSyntacticallyCorrect(inputExpression)) {
 		infixExp = inputExpression;
-		postfixExp = "";
+		postfixExp = ""; // Clear the previous postfix expression
 		evaluateExpression();
 		return result;
 	}
@@ -24,25 +17,11 @@ int InfixCalculator::setInfixExp(const string& inputExpression)
 	}
 }
 
-int InfixCalculator::getResult() const
-{
-	return result;
-}
-
-string InfixCalculator::getInfixExp() const
-{
-	return infixExp;
-}
-
-string InfixCalculator::getPostfixExp() const
-{
-	return postfixExp;
-}
-
 void InfixCalculator::evaluateExpression()
 {
 	char current;
 
+	// Iterate through the infix expression
 	for (int i = 0; i < (int)infixExp.length(); i++) 
 	{
 		current = infixExp[i];
@@ -53,9 +32,10 @@ void InfixCalculator::evaluateExpression()
 
 		if (isdigit(current)) 
 		{
+			// Push the integer form of the operand onto the valueStack.
 			valueStack.push(atoi(&current));
 
-			// Immediately append operand to postfix string.
+			// Append the character form of the operand to postfix string.
 			postfixExp += current;
 
 #ifdef DEBUG
@@ -96,11 +76,14 @@ void InfixCalculator::evaluateExpression()
 		}
 	}
 
+	// Pop remaining operators after the entire expression has been pushed
 	while (!operatorStack.isEmpty()) 
 	{
 		performOperation();
 	}
 
+	// If peek() was used, the valueStack would contain a 
+	// history of the calculations underneath the top value.
 	result = valueStack.pop();
 }
 
@@ -118,6 +101,8 @@ void InfixCalculator::safelyPushOperator(const char& currentChar)
 		while (!operatorStack.isEmpty() && op <= operatorStack.peek()) {
 			performOperation();
 		}
+		// Push operator after operators of greater or equal 
+		// precedence have been popped or if none are left.
 		operatorStack.push(op);
 	}
 }
@@ -142,4 +127,19 @@ void InfixCalculator::performOperation()
 	postfixExp += operation.getRawValue();
 }
 
-#endif
+// ACCESSORS
+
+int InfixCalculator::getResult() const
+{
+	return result;
+}
+
+string InfixCalculator::getInfixExp() const
+{
+	return infixExp;
+}
+
+string InfixCalculator::getPostfixExp() const
+{
+	return postfixExp;
+}

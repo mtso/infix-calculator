@@ -1,3 +1,7 @@
+// Main.cpp
+// Lab 3: Infix Calculator
+// CIS 22C F2016: Adrian Marroquin, Matthew Tso
+
 #include <iostream>
 #include <string>
 
@@ -5,8 +9,22 @@
 
 using namespace std;
 
+/**
+ * Toggles between a light and dark color scheme.
+ */
 bool toggleFancyMode();
 
+/**
+ * Creates command line process that allows the evaluation
+ * of infix expressions until the user quits.
+ *
+ * Commands:
+ * (H)elp
+ * (C)olor
+ * (I)nfo
+ * (Q)uit
+ * Default: [Input Expression String]
+ */
 int main(int argc, char** argv)
 {
 

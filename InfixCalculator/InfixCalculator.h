@@ -1,10 +1,6 @@
-// InfixConverter.h
-// Lab 3: Postfix Operations
-// CIS 22C F2016: Adrian Marroquin, Matthew Tso\
-
-/**
- * Converts an infix expression into postfix form
- */
+// InfixCalculator.h
+// Lab 3: Infix Calculator
+// CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
 #ifndef INFIXCALCULATOR_INFIXCALCULATOR_H
 #define INFIXCALCULATOR_INFIXCALCULATOR_H
@@ -17,28 +13,50 @@
 
 using namespace std;
 
-// Takes a minimal infix expression and returns equivalenent postfix expression
-string convertInfixToPostfix(const string& inputString);
-
+/**
+ * The InfixCalculator objects holds the stacks
+ * and resulting value and postfix string conversion
+ * of an infix expression input.
+ *
+ * evaluateExpression(), performOperation(), and 
+ * safelyPushOperator(current:) are completely coupled.
+ *
+ * setInfixExp(inputExpression) is the entry point for 
+ * the expression evaluation procedure.
+ */
 class InfixCalculator
 {
 private:
+	/** Contains the integer terms */
 	Stack<int> valueStack;
+
+	/** Stack for Operator objects */
 	Stack<Operator> operatorStack;
+	
+	/** Contains the most recent input expression. */
 	string infixExp;
+	
+	/** Contains the most recent expression in postfix form. */
 	string postfixExp;
 
-	// Stores the result of the evaluated infix expression
+	/** Stores the result of the evaluated infix expression */
 	int result;
 
 	/**
-	 * Calculates the expression stored in infixExp.
+	 * Calculates the expression stored in infixExp. 
+	 * SIDE-EFFECTS: 
+	 *    Uses performOperation() to calculate the values at each
+	 *    Operator pop() and safelyPushOperator(current:)
+	 *    to push operators depending on precedence.
+	 * string postfixExp created through character appends during these operations
+	 * int result is set at the end
 	 */
 	void evaluateExpression();
 
 	/**
 	 * Pops and performs the top operator on the top two operands.
 	 * Then pushes the result onto the integer stack.
+	 * Appends the popped operator to the postfixExpression string.
 	 */
 	void performOperation();
 
@@ -51,23 +69,34 @@ private:
 
 public:
 	/**
-	 * Takes in an input expression, then evaluates it,
+	 * Takes in an input expression, evaluates it,
 	 * and then stores and returns the result.
-	 * Will throw if the input expression is syntactically incorrect.
+	 * If the input expression is valid, the postfixExp
+	 * will be cleared in preparation to take in characters
+	 * and infixExp set to the input string.
+	 * 
+	 * Calls evaluateExpression() once the expression is set.
+	 *
+	 * @throw char* the input expression if it is syntactically incorrect.
+	 * @return int evaluated result.
 	 */
 	int setInfixExp(const string& inputExpression);
 
 	/**
-	 * Returns the result of the last-set input expression.
+	 * @return int the result of the last-set input expression.
 	 */
 	int getResult() const;
 
 	/**
-	 * Returns the last-set input expression in infix form.
+	 * @return string the last-set input expression in infix form.
 	 */
 	string getInfixExp() const;
 
+	/**
+	 * @return string the postfix form of the last expression.
+	 */
 	string getPostfixExp() const;
 };
 
 #endif
+
