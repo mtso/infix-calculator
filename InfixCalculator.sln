@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InfixCalculator", "InfixCal
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InfixCalculatorTests", "InfixCalculatorTests\InfixCalculatorTests.vcxproj", "{8F08B4A7-8F8E-4F1F-9E2A-3D2E72235FB6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ADTLib", "ADTLib\ADTLib.vcxproj", "{D6AB8FA6-2DEC-443C-AA01-9CAF70F348A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{8F08B4A7-8F8E-4F1F-9E2A-3D2E72235FB6}.Debug|Win32.Build.0 = Debug|Win32
 		{8F08B4A7-8F8E-4F1F-9E2A-3D2E72235FB6}.Release|Win32.ActiveCfg = Release|Win32
 		{8F08B4A7-8F8E-4F1F-9E2A-3D2E72235FB6}.Release|Win32.Build.0 = Release|Win32
+		{D6AB8FA6-2DEC-443C-AA01-9CAF70F348A7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D6AB8FA6-2DEC-443C-AA01-9CAF70F348A7}.Debug|Win32.Build.0 = Debug|Win32
+		{D6AB8FA6-2DEC-443C-AA01-9CAF70F348A7}.Release|Win32.ActiveCfg = Release|Win32
+		{D6AB8FA6-2DEC-443C-AA01-9CAF70F348A7}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

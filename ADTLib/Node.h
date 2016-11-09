@@ -2,6 +2,8 @@
 // Lab 2: Stack ADT
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
+#include "stdafx.h"
+
 #ifndef STACKADT_NODE_H
 #define STACKADT_NODE_H
 
@@ -66,5 +68,4 @@ public:
 	void setData(const DataType& newData);
 };
 
-#include "Node.cpp"
 #endif

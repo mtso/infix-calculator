@@ -2,9 +2,6 @@
 // Lab 2: Stack ADT
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
-#ifndef STACKADT_LIST_CPP
-#define STACKADT_LIST_CPP
-
 #include "List.h"
 
 template <typename DataType>
@@ -19,8 +16,6 @@ template <typename DataType>
 List<DataType>::~List()
 {
 	clear();
-	
-	util::log("~List called");
 }
 
 template <typename DataType>
@@ -156,28 +151,3 @@ void List<DataType>::clear()
 		removeFirst();
 	}
 }
-
-template <typename DataType>
-void List<DataType>::printList() const
-{
-	printListTo(cout);
-}
-
-template <typename DataType>
-void List<DataType>::printListTo(ostream& out) const
-{
-	if (!isEmpty()) {
-		out << head->getData() << endl;
-		Node<DataType>* nextNode = head->getNext();
-		while (nextNode != nullptr)
-		{
-			out << nextNode->getData() << endl;
-			nextNode = nextNode->getNext();
-		}
-	}
-	else {
-		out << "Empty List" << endl;
-	}
-}
-
-#endif

@@ -2,14 +2,12 @@
 // Lab 2: Stack ADT
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
+#include "stdafx.h"
+
 #ifndef STACKADT_LIST_H
 #define STACKADT_LIST_H
 
 #include "Node.h"
-#include <iostream>
-#include "Logger\Logger.h"
-
-using namespace std;
 
 /**
  * Linked List implementation of Bag ADT
@@ -87,18 +85,7 @@ public:
 	 */
 	void clear();
 
-	/*
-	 * Print out contents of list
-	 */
-	void printList() const;
-
-	/**
-	 * Print contents of list into an output stream.
-	 * Used for testing.
-	 */
-	void printListTo(ostream& out) const;
 };
 
-#include "List.cpp"
 #endif
 

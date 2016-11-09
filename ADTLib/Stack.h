@@ -2,6 +2,12 @@
 // Lab 2: Stack ADT
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
+#ifdef ADTLIB_EXPORTS
+#define ADTLIB_API __declspec(dllexport) 
+#else
+#define ADTLIB_API __declspec(dllimport) 
+#endif
+
 #ifndef STACKADT_STACK_H
 #define STACKADT_STACK_H
 
@@ -14,7 +20,7 @@
 #include "List.h"
 
 template <typename DataType>
-class Stack : protected List<DataType>
+class ADTLIB_API Stack : protected List<DataType>
 {
 public:
 	~Stack(); // Destructor
@@ -44,11 +50,10 @@ public:
 	 */
 	DataType pop();
 
-	/*
-	* Peek returns the value of the first item from the stack.
-	*/
+	/**
+	 * Peek returns the value of the first item from the stack.
+	 */
 	DataType peek();
 };
 
-#include "Stack.cpp"
 #endif

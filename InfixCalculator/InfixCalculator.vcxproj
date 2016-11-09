@@ -45,9 +45,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$SolutionDir)StackADT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>StackADT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -69,23 +72,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
-    <ClCompile Include="StackADT\List.cpp" />
-    <ClCompile Include="StackADT\Logger\Logger.cpp" />
-    <ClCompile Include="StackADT\Node.cpp" />
-    <ClCompile Include="StackADT\Queue.cpp" />
-    <ClCompile Include="StackADT\Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InfixCalculator.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="OperatorPrecedence.h" />
     <ClInclude Include="Parser.h" />
-    <ClInclude Include="StackADT\Collection.h" />
-    <ClInclude Include="StackADT\List.h" />
-    <ClInclude Include="StackADT\Logger\Logger.h" />
-    <ClInclude Include="StackADT\Node.h" />
-    <ClInclude Include="StackADT\Queue.h" />
-    <ClInclude Include="StackADT\Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

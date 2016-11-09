@@ -2,17 +2,13 @@
 // Lab 2: Stack ADT
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
-#ifndef STACKADT_STACK_CPP
-#define STACKADT_STACK_CPP
+#include "stdafx.h"
 
 #include "Stack.h"
 
 template <typename DataType>
 Stack<DataType>::~Stack()
 {
-	// Do we need to explicitly call?
-
-	util::log("~Stack called");
 }
 
 template <typename DataType>
@@ -54,5 +50,3 @@ DataType Stack<DataType>::peek()
 {
 	return head->getData();
 }
-
-#endif
