@@ -81,6 +81,7 @@
     <ClInclude Include="OperatorPrecedence.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="StackADT\Collection.h" />
+    <ClInclude Include="InfoText.h" />
     <ClInclude Include="StackADT\List.h" />
     <ClInclude Include="StackADT\Logger\Logger.h" />
     <ClInclude Include="StackADT\Node.h" />

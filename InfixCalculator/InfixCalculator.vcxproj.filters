@@ -74,5 +74,8 @@
     <ClInclude Include="OperatorPrecedence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InfoText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
