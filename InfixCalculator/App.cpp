@@ -2,6 +2,7 @@
 // Lab 3: Infix Calculator
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -31,13 +32,17 @@ int main(int argc, char** argv)
 
 #ifndef DEBUG
 
-	bool fancyModeOption = true;
-	bool shouldContinue = true;
+	// Initialize Input/Output variables
 	string inputExp;
-	InfixCalculator calculator;
 	int result;
 	char command;
 
+	// Initialize calculator and logic options
+	InfixCalculator calculator;
+	bool fancyModeOption = true;
+	bool shouldContinue = true;
+
+	// Evaluate command line arguments
 	string option;
 	for (int i = 0; i < argc; i++) {
 		option = argv[i];
@@ -65,21 +70,26 @@ int main(int argc, char** argv)
 		command = inputExp[0];
 
 		switch (toupper(command)) {
-		case 'H':
+		case CMD_HELP:
 			cout << TEXT_HELP << endl;
 			break;
 
-		case 'C':
+		case CMD_COLOR:
 			fancyModeOption = toggleFancyMode();
 			cout << (fancyModeOption ? TEXT_COLOR_ON : TEXT_COLOR_OFF) << endl;
 			break;
 
-		case 'I':
+		case CMD_INFO:
 			cout << TEXT_INFO << endl;
 			break;
 
-		case 'Q':
-			shouldContinue = false;
+
+		case CMD_QUIT:
+			cout << TEXT_QUIT;
+			cin >> command;
+			cout << endl;
+
+			shouldContinue = (toupper(command) == CMD_CONFIRM) ? false : true;
 			break;
 
 		default:
@@ -87,7 +97,7 @@ int main(int argc, char** argv)
 			try {
 				result = calculator.setInfixExp(inputExp);
 				cout << " > Postfix: " << calculator.getPostfixExp() << endl;
-				cout << " > Result: " << result << endl;
+				cout << " > Result: " << result << endl << endl;
 			}
 			catch (string error) {
 				cout << TEXT_ERROR << endl;
@@ -96,7 +106,7 @@ int main(int argc, char** argv)
 
 	}
 
-	cout << endl << TEXT_QUIT << endl;
+	cout << endl << TEXT_FAREWELL << endl;
 	system(COLOR_NORMAL);
 
 #else
