@@ -39,7 +39,15 @@ int Operator::performOn(const int& operandLeft, const int& operandRight) const
 		return operandLeft * operandRight;
 		
 	case '/':
-		return operandLeft / operandRight;
+		if (operandRight == 0)
+		{
+			throw " > Division By 0 Error";
+		}
+		else
+		{
+			return operandLeft / operandRight;
+		}
+		
 
 	case '+':
 		return operandLeft + operandRight;

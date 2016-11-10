@@ -3,6 +3,7 @@
 // CIS 22C F2016: Adrian Marroquin, Matthew Tso
 
 #include "InfixCalculator.h"
+#include <stdexcept>
 
 int InfixCalculator::setInfixExp(const string& inputExpression)
 {
@@ -114,7 +115,14 @@ void InfixCalculator::performOperation()
 	Operator operation = operatorStack.pop();
 	int result;
 
-	result = operation.performOn(left, right);
+	try
+	{
+		result = operation.performOn(left, right);
+	}
+	catch (const char* e)
+	{
+		cerr << e << '\n';
+	}
 
 #ifdef DEBUG
 	cout << "Left: " << left << ", Right: " << right << ", Operator: " << operation.getRawValue() << endl;
